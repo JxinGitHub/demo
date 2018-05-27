@@ -1,0 +1,9 @@
+mybatis:
+  mapper-locations: classpath:/mapping/**/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+server:
+  context-path: /obtain
+spring:
+  profiles:
+    active: dev

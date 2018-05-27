@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <script type="text/javascript" th:src="@{https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js}"></script>
+    <title>Title</title>
+</head>
+<body>
+
+<button id="btn">点击发送 </button>
+
+</body>
+
+</html>
+
+<script>
+
+    $("#btn").click(function(){
+        $.ajax({
+            type : "post",
+            async:false,
+//            url: "http://cry.ubd.local:8083/cas/getUserId/"+ username,
+            url: "http://localhost:8080/obtain/cas/getUserId",
+            data: {
+                "acount":"13141396099"
+            },
+            dataType : "jsonp",
+            jsonp: "jsonpCallback",
+            jsonpCallback:"jsonpCallback",
+            success : function(data){
+                loginId = data.user_id;
+
+//                document.getElementById("fm1").submit();
+
+            },
+            error:function(json){
+                console.log(json)
+            }
+        }) // ajax end::[]
+    });
+
+</script>
